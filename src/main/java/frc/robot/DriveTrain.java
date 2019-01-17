@@ -18,8 +18,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class DriveTrain extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  public static final TalonSRX leftFront = new TalonSRX(0), leftBack = new TalonSRX(1), rightFront = new TalonSRX(2),
-      rightBack = new TalonSRX(3);
+  public static final TalonSRX leftFront = new TalonSRX(3), leftBack = new TalonSRX(4), rightFront = new TalonSRX(1),
+      rightBack = new TalonSRX(2);
 
   @Override
   public void initDefaultCommand() {

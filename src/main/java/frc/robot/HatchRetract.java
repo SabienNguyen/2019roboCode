@@ -9,44 +9,28 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class BigToggle extends Command {
-  public BigToggle() {
+public class HatchRetract extends Command {
+  public HatchRetract() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.pneumatics);
   }
 
-  boolean bigToggle = true;
-  boolean isPressed = false;
-  boolean button = Robot.oi.xboxController.getBButtonPressed();
-
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-
-    if (bigToggle && button) {
-      bigToggle = false;
-      Robot.pneumatics.retractBigPiston();
-      isPressed = true;
-    } else if (isPressed && button) {
-      isPressed = false;
-      Robot.pneumatics.retractBigPiston();
-      bigToggle = true;
-    } else {
-      Robot.pneumatics.bigPistonOff();
-    }
+    Robot.pneumatics.retractHatchPiston();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true

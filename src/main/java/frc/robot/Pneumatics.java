@@ -16,9 +16,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Pneumatics extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  public static final DoubleSolenoid hatchSolenoid1 = new DoubleSolenoid(1, 2),
-      hatchSolenoid2 = new DoubleSolenoid(3, 4), bigSolenoid1 = new DoubleSolenoid(5, 6),
-      bigSolenoid2 = new DoubleSolenoid(7, 8);
+  public static final DoubleSolenoid hatchSolenoid1 = new DoubleSolenoid(1, 0, 1),
+      hatchSolenoid2 = new DoubleSolenoid(1, 2, 3);
 
   @Override
   public void initDefaultCommand() {
@@ -28,32 +27,18 @@ public class Pneumatics extends Subsystem {
 
   public void fireHatchPiston() {
     hatchSolenoid1.set(DoubleSolenoid.Value.kForward);
-    hatchSolenoid1.set(DoubleSolenoid.Value.kForward);
-  }
-
-  public void fireBigPiston() {
-    bigSolenoid1.set(DoubleSolenoid.Value.kForward);
-    bigSolenoid1.set(DoubleSolenoid.Value.kForward);
+    hatchSolenoid2.set(DoubleSolenoid.Value.kForward);
   }
 
   public void retractHatchPiston() {
     hatchSolenoid1.set(DoubleSolenoid.Value.kReverse);
-    hatchSolenoid1.set(DoubleSolenoid.Value.kReverse);
-  }
-
-  public void retractBigPiston() {
-    bigSolenoid1.set(DoubleSolenoid.Value.kReverse);
-    bigSolenoid1.set(DoubleSolenoid.Value.kReverse);
+    hatchSolenoid2.set(DoubleSolenoid.Value.kReverse);
   }
 
   public void HatchPistonOff() {
     hatchSolenoid1.set(DoubleSolenoid.Value.kOff);
-    hatchSolenoid1.set(DoubleSolenoid.Value.kOff);
+    hatchSolenoid2.set(DoubleSolenoid.Value.kOff);
   }
 
-  public void bigPistonOff() {
-    bigSolenoid1.set(DoubleSolenoid.Value.kOff);
-    bigSolenoid1.set(DoubleSolenoid.Value.kOff);
-  }
 
 }

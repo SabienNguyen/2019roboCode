@@ -9,16 +9,12 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class HatchToggle extends Command {
-  public HatchToggle() {
+public class HatchForward extends Command {
+  public HatchForward() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.pneumatics);
   }
-
-  boolean isPressed = false;
-  boolean hatchToggle = true;
-  boolean button = Robot.oi.xboxController.getAButtonPressed();
 
   // Called just before this Command runs the first time
   @Override
@@ -28,23 +24,13 @@ public class HatchToggle extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (hatchToggle && button) {
-      hatchToggle = false;
-      Robot.pneumatics.retractHatchPiston();
-      isPressed = true;
-    } else if (isPressed && button) {
-      hatchToggle = true;
-      Robot.pneumatics.fireHatchPiston();
-    } else {
-      Robot.pneumatics.HatchPistonOff();
-    }
-
+    Robot.pneumatics.fireHatchPiston();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true

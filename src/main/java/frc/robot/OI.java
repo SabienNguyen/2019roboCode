@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -15,16 +16,17 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
     public XboxController xboxController;
-    public JoystickButton hatchButton;
-    public JoystickButton bigButton;
+    public JoystickButton hatchButtonFire;
+    public JoystickButton hatchButtonRetract;
 
     public OI() {
-        xboxController = new XboxController(1);
-        hatchButton = new JoystickButton(xboxController, 1);
-        bigButton = new JoystickButton(xboxController, 2);
+        xboxController = new XboxController(3);
+        hatchButtonFire = new JoystickButton(xboxController, 2);
+        hatchButtonRetract = new JoystickButton(xboxController, 1);
 
-        hatchButton.whenPressed(new HatchToggle());
-        bigButton.whenPressed(new BigToggle());
+        hatchButtonFire.whenPressed(new HatchForward());
+        hatchButtonRetract.whenPressed(new HatchRetract());
+
     }
 
 }
